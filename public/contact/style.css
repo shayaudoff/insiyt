@@ -1,0 +1,19 @@
+:root {
+  --page-accent: #2a2218;
+  --page-accent-soft: #f7f3ec;
+}
+
+.page-contact .interior-hero {
+  background: linear-gradient(135deg, var(--page-accent-soft) 0%, var(--color-cream) 45%, var(--page-accent-soft) 100%);
+}
+
+.page-contact .label,
+.page-contact .timeline-list strong,
+.page-contact .v-card h3 {
+  color: var(--page-accent);
+}
+
+.page-contact .tick-list li::before,
+.page-contact .chip-list li {
+  background: color-mix(in srgb, var(--page-accent) 14%, white);
+}

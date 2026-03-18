@@ -1,0 +1,19 @@
+:root {
+  --page-accent: #a8b8a0;
+  --page-accent-soft: #eef2ec;
+}
+
+.page-therapeutic-touch-modalities .interior-hero {
+  background: linear-gradient(135deg, var(--page-accent-soft) 0%, var(--color-cream) 45%, var(--page-accent-soft) 100%);
+}
+
+.page-therapeutic-touch-modalities .label,
+.page-therapeutic-touch-modalities .timeline-list strong,
+.page-therapeutic-touch-modalities .v-card h3 {
+  color: var(--page-accent);
+}
+
+.page-therapeutic-touch-modalities .tick-list li::before,
+.page-therapeutic-touch-modalities .chip-list li {
+  background: color-mix(in srgb, var(--page-accent) 14%, white);
+}

@@ -1,0 +1,19 @@
+:root {
+  --page-accent: #a17562;
+  --page-accent-soft: #f1e7e2;
+}
+
+.page-menopause-support .interior-hero {
+  background: linear-gradient(135deg, var(--page-accent-soft) 0%, var(--color-cream) 45%, var(--page-accent-soft) 100%);
+}
+
+.page-menopause-support .label,
+.page-menopause-support .timeline-list strong,
+.page-menopause-support .v-card h3 {
+  color: var(--page-accent);
+}
+
+.page-menopause-support .tick-list li::before,
+.page-menopause-support .chip-list li {
+  background: color-mix(in srgb, var(--page-accent) 14%, white);
+}

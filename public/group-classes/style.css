@@ -1,0 +1,19 @@
+:root {
+  --page-accent: #7a8c72;
+  --page-accent-soft: #eaf0ea;
+}
+
+.page-group-classes .interior-hero {
+  background: linear-gradient(135deg, var(--page-accent-soft) 0%, var(--color-cream) 45%, var(--page-accent-soft) 100%);
+}
+
+.page-group-classes .label,
+.page-group-classes .timeline-list strong,
+.page-group-classes .v-card h3 {
+  color: var(--page-accent);
+}
+
+.page-group-classes .tick-list li::before,
+.page-group-classes .chip-list li {
+  background: color-mix(in srgb, var(--page-accent) 14%, white);
+}

@@ -1,0 +1,19 @@
+:root {
+  --page-accent: #7a8c72;
+  --page-accent-soft: #ecf2ed;
+}
+
+.page-brainspotting .interior-hero {
+  background: linear-gradient(135deg, var(--page-accent-soft) 0%, var(--color-cream) 45%, var(--page-accent-soft) 100%);
+}
+
+.page-brainspotting .label,
+.page-brainspotting .timeline-list strong,
+.page-brainspotting .v-card h3 {
+  color: var(--page-accent);
+}
+
+.page-brainspotting .tick-list li::before,
+.page-brainspotting .chip-list li {
+  background: color-mix(in srgb, var(--page-accent) 14%, white);
+}

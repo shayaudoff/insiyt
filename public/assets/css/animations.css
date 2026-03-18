@@ -1,0 +1,258 @@
+/* =============================================================
+   INSIYT — animations.css
+   All animation keyframes and scroll-reveal classes.
+   Loaded on every page after global.css.
+   main.js drives .reveal → .visible via IntersectionObserver.
+   ============================================================= */
+
+
+/* ─────────────────────────────────────────
+   1. KEYFRAMES
+   ───────────────────────────────────────── */
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to   { opacity: 1; transform: translateY(0);     }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes fadeLeft {
+  from { opacity: 0; transform: translateX(28px); }
+  to   { opacity: 1; transform: translateX(0);    }
+}
+
+@keyframes fadeRight {
+  from { opacity: 0; transform: translateX(-28px); }
+  to   { opacity: 1; transform: translateX(0);     }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.94); }
+  to   { opacity: 1; transform: scale(1);    }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-40px); }
+  to   { opacity: 1; transform: translateX(0);     }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(40px); }
+  to   { opacity: 1; transform: translateX(0);    }
+}
+
+/* Pulsing dot (used in nav badge, status indicators) */
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(122, 140, 114, 0.4); }
+  50%       { box-shadow: 0 0 0 6px rgba(122, 140, 114, 0); }
+}
+
+/* Vertical scroll-line (decorative) */
+@keyframes scrollLine {
+  0%   { transform: scaleY(0); transform-origin: top; opacity: 0; }
+  50%  { transform: scaleY(1); transform-origin: top; opacity: 1; }
+  100% { transform: scaleY(1); transform-origin: bottom; opacity: 0; }
+}
+
+/* Shimmer (skeleton loaders if needed) */
+@keyframes shimmer {
+  from { background-position: -200% 0; }
+  to   { background-position:  200% 0; }
+}
+
+/* Marquee (scrolling text band) */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+
+/* ─────────────────────────────────────────
+   2. PAGE-LOAD HERO ANIMATIONS
+   Applied directly in each page's HTML via
+   style="animation: fadeUp 0.9s Xs forwards"
+   Base class keeps element hidden until fired.
+   ───────────────────────────────────────── */
+.anim-hidden {
+  opacity: 0;
+}
+
+/* Stagger helpers — add to siblings */
+.anim-delay-1 { animation-delay: 0.15s !important; }
+.anim-delay-2 { animation-delay: 0.30s !important; }
+.anim-delay-3 { animation-delay: 0.45s !important; }
+.anim-delay-4 { animation-delay: 0.60s !important; }
+.anim-delay-5 { animation-delay: 0.75s !important; }
+.anim-delay-6 { animation-delay: 0.90s !important; }
+
+
+/* ─────────────────────────────────────────
+   3. SCROLL REVEAL  (driven by main.js)
+   Add .reveal to any element.
+   main.js adds .visible when it enters viewport.
+   Use data-delay="Xms" for stagger (handled in main.js).
+   ───────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity  0.65s ease,
+    transform 0.65s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Directional variants */
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-28px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.reveal-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(28px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.reveal-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.reveal-scale.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Stagger children — add to a parent, children get auto delays */
+.reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+.reveal-stagger.visible > *:nth-child(1) { opacity: 1; transform: none; transition-delay: 0.00s; }
+.reveal-stagger.visible > *:nth-child(2) { opacity: 1; transform: none; transition-delay: 0.10s; }
+.reveal-stagger.visible > *:nth-child(3) { opacity: 1; transform: none; transition-delay: 0.20s; }
+.reveal-stagger.visible > *:nth-child(4) { opacity: 1; transform: none; transition-delay: 0.30s; }
+.reveal-stagger.visible > *:nth-child(5) { opacity: 1; transform: none; transition-delay: 0.40s; }
+.reveal-stagger.visible > *:nth-child(6) { opacity: 1; transform: none; transition-delay: 0.50s; }
+
+
+/* ─────────────────────────────────────────
+   4. HOVER MICRO-INTERACTIONS
+   Utility classes — add to any element
+   ───────────────────────────────────────── */
+
+/* Gentle lift on hover */
+.hover-lift {
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Subtle grow */
+.hover-grow {
+  transition: transform var(--transition);
+}
+.hover-grow:hover {
+  transform: scale(1.02);
+}
+
+/* Arrow nudge — for .service-link style arrows */
+.hover-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: gap var(--transition);
+}
+.hover-arrow::after {
+  content: '→';
+  transition: transform var(--transition);
+}
+.hover-arrow:hover { gap: 0.75rem; }
+.hover-arrow:hover::after { transform: translateX(3px); }
+
+/* Underline grow from left */
+.hover-underline {
+  position: relative;
+}
+.hover-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 0; height: 1px;
+  background: currentColor;
+  transition: width var(--transition);
+}
+.hover-underline:hover::after { width: 100%; }
+
+
+/* ─────────────────────────────────────────
+   5. UTILITY ANIMATION CLASSES
+   One-shot animations, applied directly in HTML
+   ───────────────────────────────────────── */
+
+.animate-fade-up    { animation: fadeUp    0.8s ease both; }
+.animate-fade-in    { animation: fadeIn    0.8s ease both; }
+.animate-fade-left  { animation: fadeLeft  0.8s ease both; }
+.animate-fade-right { animation: fadeRight 0.8s ease both; }
+.animate-scale-in   { animation: scaleIn   0.8s ease both; }
+
+/* Pulsing dot */
+.pulse-dot {
+  animation: pulse 2.2s ease-in-out infinite;
+}
+
+/* Marquee band */
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 24s linear infinite;
+}
+.marquee-track:hover { animation-play-state: paused; }
+
+
+/* ─────────────────────────────────────────
+   6. REDUCED MOTION  (accessibility)
+   ───────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration:   0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration:  0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal,
+  .reveal-left,
+  .reveal-right,
+  .reveal-scale,
+  .reveal-stagger > * {
+    opacity: 1;
+    transform: none;
+  }
+}

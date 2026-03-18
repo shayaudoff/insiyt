@@ -1,0 +1,624 @@
+/* =============================================================
+   INSIYT — meet-shaindel/style.css
+   Editorial portrait layout. Warm, spacious, human.
+   Design language: vertical timeline, large portrait split,
+   soft terracotta accents, cream backgrounds.
+   ============================================================= */
+
+:root {
+  --ms-accent:   #B5745A;   /* terracotta — warm and personal */
+  --ms-sage:     #7A8C72;
+  --ms-blush:    #D4A99A;
+  --ms-pale:     #EDD8D2;
+  --ms-wash:     #FAF6F1;
+}
+
+/* ── Label colour for this page ── */
+.ms-label       { color: var(--ms-accent); }
+.ms-label::before { background: var(--ms-accent); }
+
+
+/* ════════════════════════════════
+   HERO — full-viewport split
+════════════════════════════════ */
+.ms-hero {
+  display: grid;
+  grid-template-columns: 42% 58%;
+  min-height: 100vh;
+  padding-top: var(--nav-height);
+  overflow: hidden;
+}
+
+/* Portrait column */
+.ms-hero-portrait {
+  position: relative;
+  background: linear-gradient(
+    170deg,
+    var(--ms-pale)    0%,
+    #C8A882           45%,
+    #9A7055           100%
+  );
+  overflow: hidden;
+}
+
+.ms-portrait-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ms-portrait-placeholder span {
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+}
+
+/* Subtle texture overlay on portrait */
+.ms-hero-portrait::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    transparent 60%,
+    rgba(247,243,236,0.12) 100%
+  );
+  pointer-events: none;
+}
+
+/* Credential badge overlaid bottom-right of portrait */
+.ms-portrait-badge {
+  position: absolute;
+  bottom: var(--space-8);
+  right: calc(-1 * var(--space-1));   /* slightly overlaps the seam */
+  background: var(--color-warm-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--space-4) var(--space-6);
+  box-shadow: var(--shadow-lg);
+  z-index: 2;
+}
+
+.ms-badge-creds {
+  display: flex;
+  gap: var(--space-2);
+  margin-bottom: var(--space-2);
+}
+.ms-badge-creds span {
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+  padding: 0.25rem 0.7rem;
+  background: rgba(122,140,114,0.1);
+  border: 1px solid rgba(122,140,114,0.25);
+  border-radius: var(--radius-pill);
+  color: var(--ms-sage);
+}
+.ms-badge-title {
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+/* Intro text column */
+.ms-hero-intro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--space-16) var(--space-16) var(--space-12) var(--space-12);
+  background: var(--color-cream);
+}
+
+.ms-hero-intro h1 {
+  font-size: clamp(3rem, 5.5vw, 5.5rem);
+  margin-top: var(--space-3);
+  margin-bottom: var(--space-3);
+  line-height: 1.0;
+}
+.ms-hero-intro h1 em { color: var(--ms-accent); }
+
+.ms-hero-tagline {
+  font-size: var(--text-xs);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  margin-bottom: var(--space-5);
+}
+
+.ms-hero-intro .lead {
+  max-width: 500px;
+  margin-bottom: var(--space-8);
+}
+
+/* Stats strip */
+.ms-stats {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  margin-top: var(--space-8);
+  padding-top: var(--space-8);
+  border-top: 1px solid var(--color-border);
+  flex-wrap: wrap;
+}
+.ms-stat {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+.ms-stat-num {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 300;
+  line-height: 1;
+  color: var(--color-bark);
+}
+.ms-stat-label {
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  line-height: 1.5;
+}
+.ms-stat-div {
+  width: 1px;
+  height: 36px;
+  background: var(--color-border);
+  flex-shrink: 0;
+}
+
+
+/* ════════════════════════════════
+   CREDENTIALS TIMELINE
+════════════════════════════════ */
+.ms-credentials {
+  background: var(--color-warm-white);
+  padding: var(--space-24) 0;
+}
+
+.ms-cred-head {
+  max-width: 700px;
+  margin-bottom: var(--space-14);
+}
+.ms-cred-head h2 {
+  margin-top: var(--space-3);
+  font-size: clamp(1.9rem, 3.5vw, 2.9rem);
+}
+
+/* Timeline layout */
+.ms-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  max-width: 860px;
+}
+
+.ms-timeline-item {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  gap: var(--space-6);
+  padding-bottom: var(--space-10);
+}
+.ms-timeline-item:last-child {
+  padding-bottom: 0;
+}
+.ms-timeline-item:last-child .ms-tl-line {
+  display: none;
+}
+
+/* Dot + vertical line */
+.ms-tl-marker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 0.35rem;
+  flex-shrink: 0;
+}
+.ms-tl-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--ms-accent);
+  border: 2px solid var(--color-warm-white);
+  box-shadow: 0 0 0 3px rgba(181,116,90,0.2);
+  flex-shrink: 0;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.ms-timeline-item:hover .ms-tl-dot {
+  transform: scale(1.3);
+  box-shadow: 0 0 0 5px rgba(181,116,90,0.15);
+}
+.ms-tl-line {
+  width: 1px;
+  flex: 1;
+  background: linear-gradient(to bottom, rgba(181,116,90,0.3), rgba(181,116,90,0.05));
+  margin-top: var(--space-3);
+  min-height: 40px;
+}
+
+/* Timeline card */
+.ms-tl-card {
+  background: var(--color-cream);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-10) var(--space-12);
+  transition: box-shadow var(--transition), transform var(--transition), border-color var(--transition);
+}
+.ms-tl-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateX(4px);
+  border-color: rgba(181,116,90,0.25);
+}
+
+.ms-tl-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 0.58rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ms-accent);
+  margin-bottom: var(--space-4);
+}
+.ms-tl-tag::before {
+  content: '';
+  width: 12px;
+  height: 1px;
+  background: currentColor;
+}
+
+.ms-tl-card h3 {
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  margin-bottom: var(--space-3);
+}
+
+.ms-tl-sub {
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  color: var(--color-muted);
+  margin-bottom: var(--space-5);
+  font-style: italic;
+}
+
+.ms-tl-card p {
+  font-size: 0.9rem;
+  line-height: 1.95;
+  color: var(--color-bark-light);
+}
+
+
+/* ════════════════════════════════
+   PHILOSOPHY QUOTE BREAK
+════════════════════════════════ */
+.ms-philosophy {
+  background: var(--color-bark);
+  padding: var(--space-20) 0;
+}
+
+.ms-phil-inner {
+  max-width: 860px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.ms-phil-mark {
+  font-family: var(--font-heading);
+  font-size: 7rem;
+  line-height: 0.5;
+  color: rgba(181,116,90,0.25);
+  user-select: none;
+}
+
+.ms-phil-quote {
+  font-family: var(--font-heading);
+  font-size: clamp(1.35rem, 2.5vw, 2rem);
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.5;
+  color: rgba(247,243,236,0.88);
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ms-phil-attr {
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(247,243,236,0.35);
+}
+
+
+/* ════════════════════════════════
+   INTEGRATED VISION
+════════════════════════════════ */
+.ms-vision {
+  background: var(--color-cream);
+  padding: var(--space-24) 0;
+}
+
+.ms-vision-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-16);
+  align-items: start;
+}
+
+.ms-vision-text h2 {
+  margin-top: var(--space-3);
+  margin-bottom: var(--space-6);
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+}
+.ms-vision-text p {
+  font-size: 0.92rem;
+  line-height: 1.9;
+  color: var(--color-bark-light);
+}
+.ms-vision-text p + p {
+  margin-top: var(--space-4);
+}
+
+/* Practices list */
+.ms-vision-practices {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.ms-practices-label {
+  font-size: var(--text-xs);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  margin-bottom: var(--space-2);
+}
+
+.ms-practices-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  list-style: none;
+}
+
+.ms-practices-list li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+  background: var(--color-warm-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--space-5) var(--space-6);
+  transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+  cursor: default;
+}
+.ms-practices-list li:hover {
+  border-color: rgba(181,116,90,0.3);
+  transform: translateX(5px);
+  box-shadow: var(--shadow-sm);
+}
+
+.ms-practice-icon {
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  width: 36px;
+  text-align: center;
+}
+
+.ms-practices-list li div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+.ms-practices-list li strong {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--color-bark);
+}
+.ms-practices-list li span {
+  font-size: 0.75rem;
+  color: var(--color-muted);
+}
+
+
+/* ════════════════════════════════
+   TEAM SECTION
+════════════════════════════════ */
+.ms-team {
+  background: var(--color-cream-2);
+  padding: var(--space-24) 0;
+}
+
+.ms-team-head {
+  max-width: 600px;
+  margin-bottom: var(--space-12);
+}
+.ms-team-head h2 {
+  margin-top: var(--space-3);
+  font-size: clamp(1.9rem, 3.5vw, 2.9rem);
+}
+
+.ms-team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-5);
+}
+
+.ms-team-card {
+  background: var(--color-warm-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+.ms-team-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+}
+
+.ms-team-portrait {
+  height: 260px;
+  background: linear-gradient(155deg, var(--ms-pale), #C4A882);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ms-team-portrait span {
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+}
+
+.ms-team-info {
+  padding: var(--space-6);
+}
+.ms-team-info h3 {
+  font-size: 1.15rem;
+  margin-bottom: var(--space-1);
+}
+.ms-team-role {
+  font-size: 0.72rem;
+  color: var(--ms-accent);
+  letter-spacing: 0.06em;
+  margin-bottom: var(--space-1);
+}
+.ms-team-creds {
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  color: var(--color-muted);
+  text-transform: uppercase;
+}
+
+/* Open / coming-soon card */
+.ms-team-card--open {
+  border-style: dashed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 340px;
+  background: transparent;
+}
+.ms-team-open-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  color: var(--color-muted);
+}
+.ms-team-open-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px dashed var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: var(--color-muted);
+}
+.ms-team-open-inner p {
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: var(--color-muted);
+}
+
+
+/* ════════════════════════════════
+   RESPONSIVE
+════════════════════════════════ */
+@media (max-width: 1024px) {
+  .ms-hero              { grid-template-columns: 1fr; min-height: auto; }
+  .ms-hero-portrait     { min-height: 55vw; max-height: 480px; }
+  .ms-hero-intro        { padding: var(--space-10) var(--space-8); }
+  .ms-portrait-badge    { right: var(--space-4); }
+  .ms-vision-grid       { grid-template-columns: 1fr; gap: var(--space-10); }
+  .ms-team-grid         { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 768px) {
+  .ms-hero-intro        { padding: var(--space-8) var(--space-5); }
+  .ms-timeline-item     { grid-template-columns: 28px 1fr; gap: var(--space-4); padding-bottom: var(--space-5); }
+  .ms-tl-card           { padding: var(--space-10) var(--space-12); }
+  .ms-stats             { gap: var(--space-4); }
+  .ms-team-grid         { grid-template-columns: 1fr; }
+  .ms-team-card--open   { min-height: 140px; }
+  .ms-phil-mark         { font-size: 5rem; }
+}
+
+@media (max-width: 480px) {
+  .ms-hero-intro h1     { font-size: clamp(2.4rem, 10vw, 3.5rem); }
+  .hero-actions         { flex-direction: column; align-items: stretch; }
+  .hero-actions .btn    { justify-content: center; }
+  .ms-stat-div          { display: none; }
+}
+
+
+/* ════════════════════════════════
+   JS-DRIVEN STYLES
+════════════════════════════════ */
+
+/* ── Timeline items — start hidden, slide in via JS ── */
+.ms-timeline-item {
+  opacity: 0;
+  transform: translateX(-18px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.ms-timeline-item.ms-tl--visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ── Portrait parallax ── */
+.ms-hero-portrait {
+  will-change: transform;
+}
+.ms-portrait-placeholder {
+  transform: translateY(calc(var(--ms-parallax, 0px) * -1));
+  transition: transform 0.05s linear;
+}
+
+/* ── Practice list items — start hidden ── */
+.ms-practices-list li {
+  opacity: 0;
+  transform: translateX(14px);
+  transition: opacity 0.5s ease, transform 0.5s ease,
+              border-color var(--transition), box-shadow var(--transition);
+}
+.ms-practices-list li.ms-practice--visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+.ms-practices-list li:hover {
+  transform: translateX(5px) !important;
+}
+
+/* ── Philosophy particles ── */
+.ms-philosophy {
+  position: relative;
+  overflow: hidden;
+}
+.ms-phil-particle {
+  position: absolute;
+  bottom: -16px;
+  border-radius: 50%;
+  background: rgba(181,116,90, var(--mp-opacity, 0.1));
+  pointer-events: none;
+  animation: ms-float linear infinite;
+  will-change: transform, opacity;
+}
+@keyframes ms-float {
+  0%   { transform: translateY(0)      scale(1);   opacity: var(--mp-opacity, 0.1); }
+  70%  { transform: translateY(-60vh)  scale(0.8); opacity: var(--mp-opacity, 0.1); }
+  100% { transform: translateY(-105vh) scale(0.5); opacity: 0; }
+}
+
+/* ── Reduced motion overrides ── */
+@media (prefers-reduced-motion: reduce) {
+  .ms-timeline-item       { opacity: 1; transform: none; transition: none; }
+  .ms-practices-list li   { opacity: 1; transform: none; transition: border-color var(--transition); }
+  .ms-phil-particle       { display: none; }
+  .ms-portrait-placeholder{ transform: none; }
+}

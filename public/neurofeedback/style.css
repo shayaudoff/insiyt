@@ -1,0 +1,19 @@
+:root {
+  --page-accent: #5d6c8f;
+  --page-accent-soft: #e8ecf5;
+}
+
+.page-neurofeedback .interior-hero {
+  background: linear-gradient(135deg, var(--page-accent-soft) 0%, var(--color-cream) 45%, var(--page-accent-soft) 100%);
+}
+
+.page-neurofeedback .label,
+.page-neurofeedback .timeline-list strong,
+.page-neurofeedback .v-card h3 {
+  color: var(--page-accent);
+}
+
+.page-neurofeedback .tick-list li::before,
+.page-neurofeedback .chip-list li {
+  background: color-mix(in srgb, var(--page-accent) 14%, white);
+}

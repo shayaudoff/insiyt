@@ -1,0 +1,19 @@
+:root {
+  --page-accent: #b5745a;
+  --page-accent-soft: #f6e7e0;
+}
+
+.page-healing-through-movement .interior-hero {
+  background: linear-gradient(135deg, var(--page-accent-soft) 0%, var(--color-cream) 45%, var(--page-accent-soft) 100%);
+}
+
+.page-healing-through-movement .label,
+.page-healing-through-movement .timeline-list strong,
+.page-healing-through-movement .v-card h3 {
+  color: var(--page-accent);
+}
+
+.page-healing-through-movement .tick-list li::before,
+.page-healing-through-movement .chip-list li {
+  background: color-mix(in srgb, var(--page-accent) 14%, white);
+}

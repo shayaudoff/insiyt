@@ -1,0 +1,487 @@
+/* =============================================================
+   INSIYT — womens-wellness/style.css
+   ============================================================= */
+
+:root {
+  --ww-blush:      #D4A99A;
+  --ww-pale:       #EDD8D2;
+  --ww-rose:       #C8907A;
+  --ww-sage:       #7A8C72;
+  --ww-sage-light: #A8B8A0;
+  --ww-terra:      #B5745A;
+  --ww-cream:      #F7F3EC;
+  --ww-wash:       #FAF6F2;
+
+  /* Single source of truth for card padding */
+  --card-pad-v: var(--space-8);   /* top / bottom inside cards */
+  --card-pad-h: var(--space-8);   /* left / right inside cards */
+  --card-gap:   var(--space-8);   /* gap between cards in a grid */
+}
+
+/* ── Label overrides ── */
+.ww-label         { color: var(--ww-rose); }
+.ww-label::before { background: var(--ww-rose); }
+.ww-label-light   { color: rgba(247,243,236,0.55); }
+.ww-label-light::before { background: rgba(247,243,236,0.4); }
+
+
+/* ════════════════════════════════
+   HERO
+════════════════════════════════ */
+.ww-hero {
+  position: relative;
+  min-height: 92vh;
+  display: flex;
+  align-items: center;
+  padding-top: var(--nav-height);
+  padding-bottom: 80px;
+  overflow: hidden;
+  background: linear-gradient(
+    145deg,
+    #F5EAE4  0%,
+    #EDD8D2 28%,
+    #E8D5CA 50%,
+    #E0CEBC 72%,
+    #D4C4AA 100%
+  );
+}
+
+.ww-hero-orbs {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.ww-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0;
+  animation: ww-orb-drift ease-in-out infinite;
+}
+.ww-orb--1 {
+  width: 520px; height: 520px;
+  background: radial-gradient(circle, rgba(212,169,154,0.45), transparent 70%);
+  top: -100px; right: -80px;
+  animation-duration: 18s; animation-delay: 0s;
+}
+.ww-orb--2 {
+  width: 380px; height: 380px;
+  background: radial-gradient(circle, rgba(168,184,160,0.3), transparent 70%);
+  bottom: 80px; left: -60px;
+  animation-duration: 22s; animation-delay: -6s;
+}
+.ww-orb--3 {
+  width: 300px; height: 300px;
+  background: radial-gradient(circle, rgba(201,169,110,0.2), transparent 70%);
+  top: 40%; left: 40%;
+  animation-duration: 28s; animation-delay: -12s;
+}
+@keyframes ww-orb-drift {
+  0%, 100% { opacity: 0.6; transform: translate(0, 0) scale(1); }
+  33%       { opacity: 0.9; transform: translate(20px, -30px) scale(1.06); }
+  66%       { opacity: 0.5; transform: translate(-15px, 20px) scale(0.94); }
+}
+
+.ww-hero-inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-6);
+  padding-top: var(--space-12);
+}
+.ww-hero-inner h1 {
+  font-size: clamp(3.2rem, 7vw, 6rem);
+  line-height: 1.0;
+  color: var(--color-bark);
+  max-width: 700px;
+}
+.ww-hero-inner h1 em { color: var(--ww-rose); }
+
+.ww-hero-lead {
+  max-width: 620px;
+  color: var(--color-bark-light);
+  font-size: 1.05rem;
+}
+
+/* Jump links */
+.ww-hero-nav {
+  display: flex;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: var(--space-4);
+}
+.ww-jump-link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-6);
+  background: rgba(253,250,245,0.65);
+  border: 1px solid rgba(181,116,90,0.2);
+  border-radius: var(--radius-pill);
+  backdrop-filter: blur(8px);
+  text-decoration: none;
+  transition: background var(--transition), transform var(--transition),
+              border-color var(--transition), box-shadow var(--transition);
+}
+.ww-jump-link:hover {
+  background: rgba(253,250,245,0.9);
+  border-color: rgba(181,116,90,0.4);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
+}
+.ww-jump-num   { font-size: 0.58rem; letter-spacing: 0.14em; color: var(--ww-rose); font-weight: 400; }
+.ww-jump-label { font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-bark); }
+.ww-jump-arrow { font-size: 0.75rem; color: var(--ww-rose); transition: transform var(--transition); }
+.ww-jump-link:hover .ww-jump-arrow { transform: translateY(3px); }
+
+/* Wave dividers */
+.ww-wave { position: absolute; bottom: -1px; left: 0; right: 0; line-height: 0; }
+.ww-wave svg { width: 100%; display: block; }
+.ww-wave--top  { position: relative; top: 0; bottom: auto; margin-top: -1px; }
+.ww-wave--bottom { position: relative; margin-bottom: -1px; }
+
+
+/* ════════════════════════════════
+   SECTION SHELLS
+════════════════════════════════ */
+.ww-section         { padding: var(--space-24) 0; }
+.ww-section--light  { background: var(--color-warm-white); }
+.ww-section--blush  { background: var(--ww-pale); padding-top: var(--space-16); padding-bottom: var(--space-16); }
+.ww-section--cream  { background: var(--ww-cream); }
+
+.ww-section-head {
+  max-width: 780px;
+  margin-bottom: var(--space-12);
+}
+.ww-section-head h2 {
+  font-size: clamp(1.9rem, 3.8vw, 3rem);
+  margin-top: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+.ww-section-head .lead { max-width: 660px; }
+
+
+/* ════════════════════════════════
+   MENOPAUSE — feature band
+════════════════════════════════ */
+.ww-feature-band {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--space-8);
+  align-items: center;
+  background: linear-gradient(135deg, var(--color-cream), var(--color-cream-2));
+  border: 1px solid var(--color-border);
+  border-left: 3px solid var(--ww-rose);
+  border-radius: var(--radius-lg);
+  padding: var(--space-10) var(--space-12);
+  margin-bottom: var(--space-20);
+}
+.ww-feature-text h3 {
+  font-size: clamp(1.3rem, 2.5vw, 1.9rem);
+  margin-bottom: var(--space-4);
+}
+.ww-feature-text h3 em { color: var(--ww-rose); }
+.ww-feature-text p {
+  font-size: 0.92rem;
+  line-height: 1.9;
+  color: var(--color-bark-light);
+  max-width: 560px;
+}
+.ww-feature-text p + p { margin-top: var(--space-3); }
+
+.ww-feature-tag {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  flex-shrink: 0;
+  text-align: right;
+}
+.ww-feature-tag span {
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  line-height: 1.5;
+}
+.ww-feature-tag span:first-child { color: var(--ww-rose); font-weight: 400; }
+
+
+/* ════════════════════════════════
+   MENOPAUSE — pillar cards
+════════════════════════════════ */
+.ww-pillars {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--card-gap);
+}
+
+.ww-pillar {
+  background: var(--color-cream);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--card-pad-v) var(--card-pad-h);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  /* animation start state */
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.55s ease, transform 0.55s ease,
+              box-shadow var(--transition), border-color var(--transition);
+}
+.ww-pillar.ww-pillar--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.ww-pillar:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(200,144,122,0.3);
+}
+.ww-pillar-icon { font-size: 1.6rem; }
+.ww-pillar h4   { font-family: var(--font-heading); font-size: 1.15rem; font-weight: 400; }
+.ww-pillar p    { font-size: 0.86rem; line-height: 1.85; color: var(--color-muted); }
+
+
+/* ════════════════════════════════
+   BIRTH HYPNOSIS — split cards
+════════════════════════════════ */
+.ww-split-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--card-gap);
+  margin-bottom: var(--space-10);
+}
+
+.ww-split-card {
+  background: rgba(253,250,245,0.75);
+  border: 1px solid rgba(181,116,90,0.15);
+  border-radius: var(--radius-lg);
+  padding: var(--card-pad-v) var(--card-pad-h);
+  backdrop-filter: blur(4px);
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+.ww-split-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-3px);
+}
+
+.ww-card-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 0.6rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ww-rose);
+  margin-bottom: var(--space-5);
+}
+.ww-card-tag::before { content: ''; width: 14px; height: 1px; background: currentColor; }
+
+.ww-split-card p { font-size: 0.92rem; line-height: 1.9; color: var(--color-bark-light); }
+.ww-split-card p + p { margin-top: var(--space-4); }
+
+/* Tick list */
+.ww-tick-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+}
+.ww-tick-list li {
+  position: relative;
+  padding-left: 1.2rem;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--color-bark-light);
+}
+.ww-tick-list li::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0.55rem;
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--ww-rose);
+  opacity: 0.6;
+}
+.ww-tick-list--sm li { font-size: 0.83rem; }
+
+/* Quote */
+.ww-quote {
+  font-family: var(--font-heading);
+  font-size: clamp(1.2rem, 2.2vw, 1.7rem);
+  font-style: italic;
+  font-weight: 300;
+  line-height: 1.5;
+  color: var(--color-bark-light);
+  border-left: 2px solid var(--ww-rose);
+  padding-left: var(--space-6);
+  max-width: 760px;
+  margin: 0;
+}
+
+
+/* ════════════════════════════════
+   PERINATAL — 3 col cards
+════════════════════════════════ */
+.ww-perinatal-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--card-gap);
+}
+
+.ww-peri-card {
+  background: var(--color-warm-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--card-pad-v) var(--card-pad-h);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  /* animation start state */
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.55s ease, transform 0.55s ease,
+              box-shadow var(--transition), border-color var(--transition);
+}
+.ww-peri-card.ww-peri--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.ww-peri-card:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(200,144,122,0.25);
+}
+.ww-peri-icon   { font-size: 1.6rem; }
+.ww-peri-card h3 { font-size: 1.2rem; font-weight: 400; }
+.ww-peri-card > p { font-size: 0.88rem; line-height: 1.85; color: var(--color-muted); }
+
+
+/* ════════════════════════════════
+   SHAINDEL BAND
+════════════════════════════════ */
+.ww-shaindel-band { background: var(--color-bark); padding: var(--space-20) 0; }
+
+.ww-shaindel-inner {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: var(--space-12);
+  align-items: center;
+}
+
+.ww-shaindel-portrait {
+  width: 220px;
+  height: 260px;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(155deg, var(--ww-pale), #C4A882);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.ww-shaindel-portrait span {
+  font-size: 0.58rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+}
+
+.ww-shaindel-text h2 {
+  color: var(--color-warm-white);
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  margin-top: var(--space-3);
+  margin-bottom: var(--space-5);
+}
+.ww-shaindel-text h2 em { color: var(--ww-blush); }
+.ww-shaindel-text p {
+  font-size: 0.9rem;
+  line-height: 1.85;
+  color: rgba(247,243,236,0.7);
+}
+.ww-shaindel-text p:first-of-type {
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: rgba(247,243,236,0.45);
+  margin-bottom: var(--space-4);
+}
+
+
+/* ════════════════════════════════
+   ACTIVE JUMP LINK (JS)
+════════════════════════════════ */
+.ww-jump-link.ww-jump--active {
+  background: rgba(253,250,245,0.92);
+  border-color: rgba(181,116,90,0.45);
+  box-shadow: var(--shadow);
+}
+.ww-jump-link.ww-jump--active .ww-jump-arrow { transform: translateY(3px); }
+
+
+/* ════════════════════════════════
+   RESPONSIVE — 1024px
+════════════════════════════════ */
+@media (max-width: 1024px) {
+  .ww-pillars           { grid-template-columns: 1fr 1fr; }
+  .ww-feature-band      { grid-template-columns: 1fr; }
+  .ww-feature-tag       { text-align: left; }
+  .ww-perinatal-grid    { grid-template-columns: 1fr 1fr; }
+  .ww-split-grid        { grid-template-columns: 1fr; }
+  .ww-shaindel-inner    { grid-template-columns: 1fr; }
+  .ww-shaindel-portrait { width: 100%; height: 260px; }
+}
+
+/* ════════════════════════════════
+   RESPONSIVE — 768px
+   Card padding matches desktop
+   (--card-pad-v / --card-pad-h tokens)
+   so no override needed — grids just
+   collapse to single column.
+════════════════════════════════ */
+@media (max-width: 768px) {
+  :root {
+    --card-pad-v: var(--space-8);
+    --card-pad-h: var(--space-6);
+    --card-gap:   var(--space-6);
+  }
+
+  .ww-hero              { min-height: auto; padding-bottom: 60px; }
+  .ww-hero-inner        { padding-top: var(--space-8); }
+  .ww-pillars           { grid-template-columns: 1fr; }
+  .ww-perinatal-grid    { grid-template-columns: 1fr; }
+  .ww-feature-band      { padding: var(--space-8) var(--space-6); }
+  .ww-hero-nav          { flex-direction: column; align-items: center; }
+}
+
+/* ════════════════════════════════
+   RESPONSIVE — 480px
+════════════════════════════════ */
+@media (max-width: 480px) {
+  :root {
+    --card-pad-v: var(--space-6);
+    --card-pad-h: var(--space-5);
+    --card-gap:   var(--space-5);
+  }
+
+  .ww-hero-inner h1   { font-size: clamp(2.6rem, 10vw, 3.8rem); }
+  .ww-jump-link       { width: 100%; justify-content: space-between; }
+  .ww-feature-band    { padding: var(--space-6) var(--space-5); }
+}
+
+/* ════════════════════════════════
+   REDUCED MOTION
+════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  .ww-pillar,
+  .ww-peri-card  { opacity: 1; transform: none; transition: box-shadow var(--transition); }
+  .ww-orb        { animation: none; opacity: 0.6; }
+  .ww-hero-inner { transform: none !important; opacity: 1 !important; }
+}

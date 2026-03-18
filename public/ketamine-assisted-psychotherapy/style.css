@@ -1,0 +1,19 @@
+:root {
+  --page-accent: #9b7d6a;
+  --page-accent-soft: #f3e9e4;
+}
+
+.page-ketamine-assisted-psychotherapy .interior-hero {
+  background: linear-gradient(135deg, var(--page-accent-soft) 0%, var(--color-cream) 45%, var(--page-accent-soft) 100%);
+}
+
+.page-ketamine-assisted-psychotherapy .label,
+.page-ketamine-assisted-psychotherapy .timeline-list strong,
+.page-ketamine-assisted-psychotherapy .v-card h3 {
+  color: var(--page-accent);
+}
+
+.page-ketamine-assisted-psychotherapy .tick-list li::before,
+.page-ketamine-assisted-psychotherapy .chip-list li {
+  background: color-mix(in srgb, var(--page-accent) 14%, white);
+}

@@ -1,0 +1,19 @@
+:root {
+  --page-accent: #7a8c72;
+  --page-accent-soft: #f7f3ec;
+}
+
+.page-our-team .interior-hero {
+  background: linear-gradient(135deg, var(--page-accent-soft) 0%, var(--color-cream) 45%, var(--page-accent-soft) 100%);
+}
+
+.page-our-team .label,
+.page-our-team .timeline-list strong,
+.page-our-team .v-card h3 {
+  color: var(--page-accent);
+}
+
+.page-our-team .tick-list li::before,
+.page-our-team .chip-list li {
+  background: color-mix(in srgb, var(--page-accent) 14%, white);
+}
