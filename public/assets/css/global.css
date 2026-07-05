@@ -752,6 +752,18 @@ body.nav-open .mobile-menu {
   color: rgba(247, 243, 236, 0.28);
 }
 
+.footer-copy .footer-credit-link {
+  color: #6ea8ff;
+  text-decoration: underline;
+  text-decoration-color: #6ea8ff;
+  text-underline-offset: 0.15em;
+}
+
+.footer-copy .footer-credit-link:hover {
+  color: #9bc2ff;
+  text-decoration-color: #9bc2ff;
+}
+
 .footer-legal {
   display: flex;
   gap: var(--space-6);
