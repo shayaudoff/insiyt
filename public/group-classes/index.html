@@ -3,32 +3,47 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Group Classes | INSIYT</title>
-  <link rel="stylesheet" href="../assets/css/global.css">
-  <link rel="stylesheet" href="../assets/css/animations.css">
-  <link rel="stylesheet" href="../assets/css/interior.css">
+  <title>Group Classes &amp; Booking | INSIYT</title>
+  <meta name="description" content="Book group classes, yoga therapy, dance therapy, drumming circles, and private appointments at INSIYT — Airmont, NY.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Outfit:wght@200;300;400;500&display=swap" rel="stylesheet">
+
+  <!--
+  ╔══════════════════════════════════════════════════╗
+  ║  SQUARE WEB PAYMENTS SDK                         ║
+  ║  Uncomment ONE of these when you're ready:       ║
+  ║                                                  ║
+  ║  Sandbox (testing):                              ║
+  ║  <script src="https://sandbox.web.squarecdn.com/v1/square.js"></script>
+  ║                                                  ║
+  ║  Production (live):                              ║
+  ║  <script src="https://web.squarecdn.com/v1/square.js"></script>
+  ╚══════════════════════════════════════════════════╝
+  -->
+
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="page-group-classes">
-  <nav class="site-nav">
+<body>
+
+  <div class="pgbar" id="pgbar"></div>
+
+  <!-- ═══ NAV ═══ -->
+  <nav class="site-nav" id="sitenav">
     <div class="nav-inner">
       <a class="nav-logo" href="../home/">INSIYT</a>
-
-      <ul class="nav-links">
+      <ul class="nav-list">
         <li><a href="../home/">Home</a></li>
-
         <li>
-          <a href="../meet-shaindel/">Meet Shaindel <span class="nav-chevron">▾</span></a>
-          <ul class="nav-dropdown">
-            <li><a href="../our-team/">Our Team</a></li>
-            <li><a href="../shaindels-story/">Shaindel's Story</a></li>
-            <li><a href="../contact/">Contact</a></li>
+          <a href="../meet-shaindel/">Meet Shaindel <span class="nav-chev">▾</span></a>
+          <ul class="nav-drop">
+            <li><a href="../meet-shaindel/#our-team">Our Team</a></li>
+            <li><a href="../meet-shaindel/#shaindels-story">Shaindel's Story</a></li>
+            <li><a href="../meet-shaindel/#contact">Contact</a></li>
           </ul>
         </li>
-
         <li>
-          <a href="../somatic-therapy/">Somatic Therapy <span class="nav-chevron">▾</span></a>
-          <ul class="nav-dropdown">
+          <a href="../somatic-therapy/">Somatic Therapy <span class="nav-chev">▾</span></a>
+          <ul class="nav-drop">
             <li><a href="../somatic-therapy/#somatic-attachment">Somatic Attachment Psychotherapy</a></li>
             <li><a href="../somatic-therapy/#touch-modalities">Therapeutic Touch Modalities</a></li>
             <li><a href="../somatic-therapy/#movement">Healing Through Movement Groups</a></li>
@@ -37,59 +52,52 @@
             <li><a href="../somatic-therapy/#drumming">Drumming Circles</a></li>
           </ul>
         </li>
-
         <li>
-          <a href="../brain-based-therapy/">Brain-Based Therapy <span class="nav-chevron">▾</span></a>
-          <ul class="nav-dropdown">
+          <a href="../brain-based-therapy/">Brain-Based Therapy <span class="nav-chev">▾</span></a>
+          <ul class="nav-drop">
             <li><a href="../brain-based-therapy/#neurofeedback">Neurofeedback</a></li>
             <li><a href="../brain-based-therapy/#integrative-psychiatry">Integrative Psychiatry</a></li>
             <li><a href="../brain-based-therapy/#brainspotting">Brainspotting</a></li>
             <li><a href="../brain-based-therapy/#ketamine">Ketamine Assisted Psychotherapy</a></li>
           </ul>
         </li>
-
         <li>
-          <a href="../womens-wellness/">Women's Wellness <span class="nav-chevron">▾</span></a>
-          <ul class="nav-dropdown">
+          <a href="../womens-wellness/">Women's Wellness <span class="nav-chev">▾</span></a>
+          <ul class="nav-drop">
             <li><a href="../womens-wellness/#menopause">Menopause Support</a></li>
             <li><a href="../womens-wellness/#birth-hypnosis">Birth Hypnosis</a></li>
             <li><a href="../womens-wellness/#perinatal">Perinatal Mental Health</a></li>
           </ul>
         </li>
-
         <li>
-          <a href="../group-classes/" class="active">Group Classes <span class="nav-chevron">▾</span></a>
-          <ul class="nav-dropdown">
-            <li><a href="../group-classes/#class-options">Class Options</a></li>
-            <li><a href="../group-classes/#book-a-class">Book a Class</a></li>
-            <li><a href="../pricing/">Plans &amp; Pricing</a></li>
+          <a href="../group-classes/" class="active">Group Classes <span class="nav-chev">▾</span></a>
+          <ul class="nav-drop">
+            <li><a href="#class-options">Class Options</a></li>
+            <li><a href="#book-a-class">Book a Class</a></li>
+            <li><a href="#pricing">Plans &amp; Pricing</a></li>
           </ul>
         </li>
       </ul>
-
-      <div class="nav-actions">
-        <button class="nav-hamburger" aria-label="Toggle navigation" aria-expanded="false">
-          <span></span><span></span><span></span>
-        </button>
-      </div>
+      <button class="nav-ham" id="ham" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </nav>
 
-  <div class="mobile-menu">
-    <div class="mobile-menu-item"><a href="../home/">Home</a></div>
-
-    <div class="mobile-menu-item">
-      <a href="../meet-shaindel/" class="mobile-toggle">Meet Shaindel <span class="mobile-toggle-icon">+</span></a>
-      <div class="mobile-sub">
-        <a href="../our-team/">Our Team</a>
-        <a href="../shaindels-story/">Shaindel's Story</a>
-        <a href="../contact/">Contact</a>
+  <!-- ═══ MOBILE MENU ═══ -->
+  <div class="mob-menu" id="mobmenu">
+    <div class="mob-item"><a href="../home/">Home</a></div>
+    <div class="mob-item">
+      <a href="../meet-shaindel/" class="mob-tog">Meet Shaindel <span class="mob-tog-icon">+</span></a>
+      <div class="mob-sub">
+        <a href="../meet-shaindel/#our-team">Our Team</a>
+        <a href="../meet-shaindel/#shaindels-story">Shaindel's Story</a>
+        <a href="../meet-shaindel/#contact">Contact</a>
       </div>
     </div>
-
-    <div class="mobile-menu-item">
-      <a href="../somatic-therapy/" class="mobile-toggle">Somatic Therapy <span class="mobile-toggle-icon">+</span></a>
-      <div class="mobile-sub">
+    <div class="mob-item">
+      <a href="../somatic-therapy/" class="mob-tog">Somatic Therapy <span class="mob-tog-icon">+</span></a>
+      <div class="mob-sub">
         <a href="../somatic-therapy/#somatic-attachment">Somatic Attachment Psychotherapy</a>
         <a href="../somatic-therapy/#touch-modalities">Therapeutic Touch Modalities</a>
         <a href="../somatic-therapy/#movement">Healing Through Movement Groups</a>
@@ -98,122 +106,906 @@
         <a href="../somatic-therapy/#drumming">Drumming Circles</a>
       </div>
     </div>
-
-    <div class="mobile-menu-item">
-      <a href="../brain-based-therapy/" class="mobile-toggle">Brain-Based Therapy <span class="mobile-toggle-icon">+</span></a>
-      <div class="mobile-sub">
+    <div class="mob-item">
+      <a href="../brain-based-therapy/" class="mob-tog">Brain-Based Therapy <span class="mob-tog-icon">+</span></a>
+      <div class="mob-sub">
         <a href="../brain-based-therapy/#neurofeedback">Neurofeedback</a>
         <a href="../brain-based-therapy/#integrative-psychiatry">Integrative Psychiatry</a>
         <a href="../brain-based-therapy/#brainspotting">Brainspotting</a>
         <a href="../brain-based-therapy/#ketamine">Ketamine Assisted Psychotherapy</a>
       </div>
     </div>
-
-    <div class="mobile-menu-item">
-      <a href="../womens-wellness/" class="mobile-toggle">Women's Wellness <span class="mobile-toggle-icon">+</span></a>
-      <div class="mobile-sub">
+    <div class="mob-item">
+      <a href="../womens-wellness/" class="mob-tog">Women's Wellness <span class="mob-tog-icon">+</span></a>
+      <div class="mob-sub">
         <a href="../womens-wellness/#menopause">Menopause Support</a>
         <a href="../womens-wellness/#birth-hypnosis">Birth Hypnosis</a>
         <a href="../womens-wellness/#perinatal">Perinatal Mental Health</a>
       </div>
     </div>
-
-    <div class="mobile-menu-item">
-      <a href="../group-classes/" class="mobile-toggle active">Group Classes <span class="mobile-toggle-icon">+</span></a>
-      <div class="mobile-sub">
-        <a href="../group-classes/#class-options">Class Options</a>
-        <a href="../group-classes/#book-a-class">Book a Class</a>
-        <a href="../pricing/">Plans &amp; Pricing</a>
+    <div class="mob-item">
+      <a href="../group-classes/" class="mob-tog">Group Classes <span class="mob-tog-icon">+</span></a>
+      <div class="mob-sub">
+        <a href="#class-options">Class Options</a>
+        <a href="#book-a-class">Book a Class</a>
+        <a href="#pricing">Plans &amp; Pricing</a>
       </div>
+    </div>
+    <div class="mob-item"><a href="../testimonials/">Testimonials</a></div>
+    <div class="mob-cta">
+      <a href="#book-a-class" class="btn btn--dark">Book a Class</a>
+      <a href="../home/"      class="btn btn--outline">Back to Home</a>
     </div>
   </div>
 
   <main>
-    <section class="interior-hero page-hero" id="overview">
-      <div class="container">
-        <span class="label anim-hidden" style="animation: fadeUp 0.8s 0.2s forwards;">Learn and Heal Together</span>
-        <h1 class="anim-hidden" style="animation: fadeUp 0.8s 0.35s forwards;">Group Classes</h1>
-        <p class="lead anim-hidden" style="animation: fadeUp 0.8s 0.5s forwards;">Group classes create structured, supportive spaces to build nervous-system regulation and reconnect with the body in community.</p>
-        <div class="hero-actions anim-hidden" style="animation: fadeUp 0.8s 0.65s forwards;">
-          <a href="../contact/" class="btn btn-primary">Book Consultation</a>
-          <a href="../home/" class="btn btn-secondary">Back to Home</a>
+
+    <!-- ══ HERO ══ -->
+    <section class="hero" id="overview">
+      <div class="hero-particles" id="particles"></div>
+      <div class="wrap">
+        <div class="hero-content">
+          <span class="label hero-eyebrow">Movement · Community · Healing</span>
+          <h1 class="hero-h1">Group Classes <em>&amp; Booking</em></h1>
+          <p class="hero-lead">Somatic movement groups, yoga therapy, dance, drumming circles, and private appointments — all in one place. Choose your class and book in minutes.</p>
+          <div class="hero-btns">
+            <a href="#book-a-class"  class="btn btn--dark">Book a Class</a>
+            <a href="#class-options" class="btn btn--outline">View All Classes</a>
+          </div>
         </div>
+      </div>
+      <div class="hero-image-strip">
+        <div class="ms ms--hero-wide">
+          <!-- <img src="../assets/img/classes-hero.jpg" alt="Group classes at INSIYT"> -->
+          <div class="ms-ph"><span>[ Hero image or video loop ]</span></div>
+        </div>
+      </div>
+      <div class="hero-pills">
+        <nav class="pills-inner" aria-label="Page sections">
+          <a href="#class-options" class="pill">All Classes</a>
+          <a href="#book-a-class"  class="pill">Book Now</a>
+          <a href="#pricing"       class="pill">Pricing Plans</a>
+          <a href="#faq"           class="pill">FAQ</a>
+        </nav>
       </div>
     </section>
 
-    <section class="section-pad--sm variant-shell variant-d" id="details">
-      <div class="container mosaic-grid">
-        <article class="mosaic-card reveal">
-          <h2>Why Group Format Works</h2>
-          <p>Offerings include movement, mindfulness, rhythm, and somatic practices designed for practical life impact.</p>
-        </article>
-        <article class="mosaic-card reveal" data-delay="80">
-          <h2>Participant Experience</h2>
-          <p>Every class follows the same whole-person healing philosophy at the core of INSIYT.</p>
-        </article>
-        <article class="mosaic-card reveal" data-delay="160">
-          <h2>What You Gain</h2>
-          <ul class="tick-list"><li>Trauma-informed facilitation</li><li>Experiential skills for daily life</li><li>Supportive group rhythm and accountability</li></ul>
-        </article>
+
+    <!-- ══ CLASS OPTIONS ══ -->
+    <section class="section section--ww" id="class-options">
+      <div class="wrap">
+
+        <div class="sec-head reveal">
+          <span class="label">Our Offerings</span>
+          <h2>Choose Your <em>Class</em></h2>
+          <p class="lead">Click any class card to jump straight to booking. All classes are led by Shaindel Udoff or trained INSIYT practitioners in Airmont, NY.</p>
+        </div>
+
+        <!--
+          CLASS CARDS
+          ─────────────────────────────────────────────
+          data-class-id   — matches your database classes.id
+          data-class-name — display name
+          data-price      — in dollars (e.g. "35.00")
+
+          TO ADD / REMOVE CLASSES:
+          Duplicate or remove a .class-card block.
+          Keep data-class-id in sync with your DB.
+          ─────────────────────────────────────────────
+        -->
+        <div class="classes-grid">
+
+          <!-- CLASS 1: SIYT Yogatherapy -->
+          <article class="class-card"
+            data-class-id="1"
+            data-class-name="SIYT Yogatherapy"
+            data-price="35.00">
+            <div class="class-card-img">
+              <div class="ms ms--card">
+                <!-- <video autoplay muted loop playsinline src="../assets/video/siyt.mp4"></video> -->
+                <div class="ms-ph"><span>[ SIYT video loop ]</span></div>
+              </div>
+              <span class="class-card-badge class-card-badge--sage">Popular</span>
+              <div class="class-card-check" aria-hidden="true"></div>
+            </div>
+            <div class="class-card-body">
+              <span class="class-card-type">Group Class</span>
+              <h3>SIYT Yogatherapy</h3>
+              <p>Vinyasa flow linking breath with movement — a meditative practice supporting deep somatic immersion, body awareness, and embodied presence.</p>
+              <div class="class-card-meta">
+                <span class="class-meta-tag">60 min</span>
+                <span class="class-meta-tag">All levels</span>
+                <span class="class-meta-tag">Up to 12 spots</span>
+              </div>
+              <div class="class-card-footer">
+                <div>
+                  <div class="class-price">$35</div>
+                  <div class="class-price-sub">per class</div>
+                </div>
+                <span class="class-book-btn">Book now →</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- CLASS 2: Dance Therapy -->
+          <article class="class-card"
+            data-class-id="2"
+            data-class-name="Dance Therapy Group"
+            data-price="30.00">
+            <div class="class-card-img">
+              <div class="ms ms--card">
+                <!-- <video autoplay muted loop playsinline src="../assets/video/dance.mp4"></video> -->
+                <div class="ms-ph"><span>[ Dance therapy video ]</span></div>
+              </div>
+              <div class="class-card-check" aria-hidden="true"></div>
+            </div>
+            <div class="class-card-body">
+              <span class="class-card-type">Group Class</span>
+              <h3>Dance Therapy Group</h3>
+              <p>Rhythm and movement to promote emotional healing — using authentic expression, attunement, and group connection in a safe, inclusive space.</p>
+              <div class="class-card-meta">
+                <span class="class-meta-tag">75 min</span>
+                <span class="class-meta-tag">All levels</span>
+                <span class="class-meta-tag">Up to 10 spots</span>
+              </div>
+              <div class="class-card-footer">
+                <div>
+                  <div class="class-price">$30</div>
+                  <div class="class-price-sub">per class</div>
+                </div>
+                <span class="class-book-btn">Book now →</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- CLASS 3: Drumming Circle -->
+          <article class="class-card"
+            data-class-id="3"
+            data-class-name="Drumming Circle"
+            data-price="25.00">
+            <div class="class-card-img">
+              <div class="ms ms--card">
+                <!-- <img src="../assets/img/drumming.jpg" alt="Drumming circle"> -->
+                <div class="ms-ph"><span>[ Drumming image ]</span></div>
+              </div>
+              <span class="class-card-badge">New</span>
+              <div class="class-card-check" aria-hidden="true"></div>
+            </div>
+            <div class="class-card-body">
+              <span class="class-card-type">Group Class</span>
+              <h3>Drumming Circle</h3>
+              <p>Evidence-based rhythmic therapy that reduces stress, releases endorphins, builds community, and brings the mind to presence.</p>
+              <div class="class-card-meta">
+                <span class="class-meta-tag">90 min</span>
+                <span class="class-meta-tag">No experience needed</span>
+                <span class="class-meta-tag">Up to 15 spots</span>
+              </div>
+              <div class="class-card-footer">
+                <div>
+                  <div class="class-price">$25</div>
+                  <div class="class-price-sub">per class</div>
+                </div>
+                <span class="class-book-btn">Book now →</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- CLASS 4: Private Somatic Session -->
+          <article class="class-card"
+            data-class-id="4"
+            data-class-name="Private Somatic Session"
+            data-price="150.00">
+            <div class="class-card-img">
+              <div class="ms ms--card">
+                <!-- <img src="../assets/img/private-session.jpg" alt="Private session"> -->
+                <div class="ms-ph"><span>[ Private session image ]</span></div>
+              </div>
+              <span class="class-card-badge class-card-badge--terra">1-on-1</span>
+              <div class="class-card-check" aria-hidden="true"></div>
+            </div>
+            <div class="class-card-body">
+              <span class="class-card-type">Private Appointment</span>
+              <h3>Private Somatic Session</h3>
+              <p>One-on-one somatic psychotherapy with Shaindel — a deeply personalised session working with attachment, trauma, and body-based healing.</p>
+              <div class="class-card-meta">
+                <span class="class-meta-tag">50 min</span>
+                <span class="class-meta-tag">1-on-1</span>
+                <span class="class-meta-tag">With Shaindel</span>
+              </div>
+              <div class="class-card-footer">
+                <div>
+                  <div class="class-price">$150</div>
+                  <div class="class-price-sub">per session</div>
+                </div>
+                <span class="class-book-btn">Book now →</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- CLASS 5: TEB / Havening Session -->
+          <article class="class-card"
+            data-class-id="5"
+            data-class-name="Therapeutic Touch Session"
+            data-price="175.00">
+            <div class="class-card-img">
+              <div class="ms ms--card">
+                <!-- <img src="../assets/img/touch-therapy.jpg" alt="Touch therapy"> -->
+                <div class="ms-ph"><span>[ Touch therapy image ]</span></div>
+              </div>
+              <span class="class-card-badge class-card-badge--terra">1-on-1</span>
+              <div class="class-card-check" aria-hidden="true"></div>
+            </div>
+            <div class="class-card-body">
+              <span class="class-card-type">Private Appointment</span>
+              <h3>Therapeutic Touch Session</h3>
+              <p>TEB or Havening Techniques — biophysiological approaches that gently rewire the brain's response to trauma using therapeutic touch.</p>
+              <div class="class-card-meta">
+                <span class="class-meta-tag">60 min</span>
+                <span class="class-meta-tag">1-on-1</span>
+                <span class="class-meta-tag">With Shaindel</span>
+              </div>
+              <div class="class-card-footer">
+                <div>
+                  <div class="class-price">$175</div>
+                  <div class="class-price-sub">per session</div>
+                </div>
+                <span class="class-book-btn">Book now →</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- CLASS 6: Discovery Consultation -->
+          <article class="class-card"
+            data-class-id="6"
+            data-class-name="Free Discovery Consultation"
+            data-price="0.00">
+            <div class="class-card-img">
+              <div class="ms ms--card">
+                <!-- <img src="../assets/img/consult.jpg" alt="Discovery consultation"> -->
+                <div class="ms-ph"><span>[ Consultation image ]</span></div>
+              </div>
+              <span class="class-card-badge class-card-badge--sage">Free</span>
+              <div class="class-card-check" aria-hidden="true"></div>
+            </div>
+            <div class="class-card-body">
+              <span class="class-card-type">Consultation</span>
+              <h3>Free Discovery Consultation</h3>
+              <p>A 20-minute call with Shaindel to explore whether INSIYT's approach is right for you — no pressure, no obligation.</p>
+              <div class="class-card-meta">
+                <span class="class-meta-tag">20 min</span>
+                <span class="class-meta-tag">Phone or Zoom</span>
+                <span class="class-meta-tag">No obligation</span>
+              </div>
+              <div class="class-card-footer">
+                <div>
+                  <div class="class-price">Free</div>
+                  <div class="class-price-sub">no charge</div>
+                </div>
+                <span class="class-book-btn">Book now →</span>
+              </div>
+            </div>
+          </article>
+
+        </div><!-- /.classes-grid -->
       </div>
     </section>
 
-    <section class="section-pad--sm detail-band">
-      <div class="container reveal">
-        <blockquote>"Healing accelerates when practiced in community."</blockquote>
-      </div>
-    </section>
-    <section class="section-pad--sm interior-cta" id="next-step">
-      <div class="container interior-cta-inner reveal">
-        <h2>Ready to Begin?</h2>
-        <p>Schedule a free virtual or phone discovery meeting with INSIYT to find your next right step.</p>
-        <a href="../contact/" class="btn btn-primary btn-lg">Start Your Consultation</a>
-      </div>
-    </section>
-  </main>
 
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <div class="footer-logo">INSIYT</div>
-        <p class="footer-tagline">Inhabit Your Body. Expand Your Mind. Transform Your Life.</p>
+    <!-- ══ DARK QUOTE BAND ══ -->
+    <div class="quote-band">
+      <div class="wrap">
+        <blockquote class="reveal">"Healing happens in the body — in movement, in rhythm, in the felt sense of being truly met."</blockquote>
       </div>
-
-      <nav class="footer-nav">
-        <div class="footer-nav-col">
-          <span class="footer-nav-heading">Services</span>
-          <a href="../somatic-therapy/">Somatic Therapy</a>
-          <a href="../brain-based-therapy/">Brain-Based Therapy</a>
-          <a href="../womens-wellness/">Women's Wellness</a>
-          <a href="../group-classes/">Group Classes</a>
-        </div>
-        <div class="footer-nav-col">
-          <span class="footer-nav-heading">About</span>
-          <a href="../meet-shaindel/">Meet Shaindel</a>
-          <a href="../our-team/">Our Team</a>
-          <a href="../shaindels-story/">Shaindel's Story</a>
-          <a href="../testimonials/">Testimonials</a>
-        </div>
-        <div class="footer-nav-col">
-          <span class="footer-nav-heading">Connect</span>
-          <a href="../contact/">Contact</a>
-          <a href="../contact/">Book a Consultation</a>
-          <a href="../pricing/">Plans &amp; Pricing</a>
-        </div>
-      </nav>
     </div>
 
-    <div class="footer-bottom">
-      <span class="footer-copy">© 2025 BY INSIYT | SHAINDEL UDOFF</span>
-      <div class="footer-legal">
-        <a href="../contact/">Contact</a>
-        <a href="../testimonials/">Testimonials</a>
+
+    <!-- ══ BOOKING FLOW ══ -->
+    <section class="section section--cr" id="book-a-class">
+      <div class="wrap">
+
+        <div class="sec-head reveal">
+          <span class="label">Book a Class or Appointment</span>
+          <h2>Reserve Your <em>Spot</em></h2>
+          <p class="lead">Choose a class, pick your date and time, fill in your details, and pay securely through Square — all in one place.</p>
+        </div>
+
+        <div class="booking-shell reveal" data-delay="150">
+
+          <!-- ── Step indicator ── -->
+          <div class="booking-steps" role="tablist" aria-label="Booking steps">
+            <div class="booking-step active" data-step="1" role="tab">
+              <div class="step-num"><span class="step-num-inner">1</span></div>
+              <span class="step-label">Class</span>
+            </div>
+            <div class="booking-step disabled" data-step="2" role="tab">
+              <div class="step-num"><span class="step-num-inner">2</span></div>
+              <span class="step-label">Date</span>
+            </div>
+            <div class="booking-step disabled" data-step="3" role="tab">
+              <div class="step-num"><span class="step-num-inner">3</span></div>
+              <span class="step-label">Time</span>
+            </div>
+            <div class="booking-step disabled" data-step="4" role="tab">
+              <div class="step-num"><span class="step-num-inner">4</span></div>
+              <span class="step-label">Details</span>
+            </div>
+            <div class="booking-step disabled" data-step="5" role="tab">
+              <div class="step-num"><span class="step-num-inner">5</span></div>
+              <span class="step-label">Payment</span>
+            </div>
+            <div class="booking-step disabled" data-step="6" role="tab">
+              <div class="step-num"><span class="step-num-inner">6</span></div>
+              <span class="step-label">Confirmed</span>
+            </div>
+          </div>
+
+          <!-- ── Body: panel + sidebar ── -->
+          <div class="booking-body">
+
+            <!-- ── Main panel ── -->
+            <div class="booking-panel">
+
+              <!-- ─ STEP 1: Choose class ─ -->
+              <div class="step-panel active" data-step="1">
+                <h3>Select a Class</h3>
+                <p class="booking-panel-sub">Choose from the options below, or click any class card above to pre-select.</p>
+
+                <!--
+                  [BACKEND] — To load classes dynamically instead of hardcoding:
+                  1. Remove the .class-radio-list below.
+                  2. Add <div id="class-radio-dynamic"></div>
+                  3. In script.js, fetch GET /api/classes and render items.
+                -->
+                <div class="class-radio-list">
+
+                  <div class="class-radio-item" data-class-id="1" data-class-name="SIYT Yogatherapy" data-price="35.00">
+                    <div class="class-radio-dot"></div>
+                    <div class="class-radio-info">
+                      <div class="class-radio-name">SIYT Yogatherapy</div>
+                      <div class="class-radio-desc">60 min · Group · All levels</div>
+                    </div>
+                    <div class="class-radio-price">$35</div>
+                  </div>
+
+                  <div class="class-radio-item" data-class-id="2" data-class-name="Dance Therapy Group" data-price="30.00">
+                    <div class="class-radio-dot"></div>
+                    <div class="class-radio-info">
+                      <div class="class-radio-name">Dance Therapy Group</div>
+                      <div class="class-radio-desc">75 min · Group · All levels</div>
+                    </div>
+                    <div class="class-radio-price">$30</div>
+                  </div>
+
+                  <div class="class-radio-item" data-class-id="3" data-class-name="Drumming Circle" data-price="25.00">
+                    <div class="class-radio-dot"></div>
+                    <div class="class-radio-info">
+                      <div class="class-radio-name">Drumming Circle</div>
+                      <div class="class-radio-desc">90 min · Group · No experience needed</div>
+                    </div>
+                    <div class="class-radio-price">$25</div>
+                  </div>
+
+                  <div class="class-radio-item" data-class-id="4" data-class-name="Private Somatic Session" data-price="150.00">
+                    <div class="class-radio-dot"></div>
+                    <div class="class-radio-info">
+                      <div class="class-radio-name">Private Somatic Session</div>
+                      <div class="class-radio-desc">50 min · 1-on-1 · With Shaindel</div>
+                    </div>
+                    <div class="class-radio-price">$150</div>
+                  </div>
+
+                  <div class="class-radio-item" data-class-id="5" data-class-name="Therapeutic Touch Session" data-price="175.00">
+                    <div class="class-radio-dot"></div>
+                    <div class="class-radio-info">
+                      <div class="class-radio-name">Therapeutic Touch Session</div>
+                      <div class="class-radio-desc">60 min · 1-on-1 · TEB or Havening</div>
+                    </div>
+                    <div class="class-radio-price">$175</div>
+                  </div>
+
+                  <div class="class-radio-item" data-class-id="6" data-class-name="Free Discovery Consultation" data-price="0.00">
+                    <div class="class-radio-dot"></div>
+                    <div class="class-radio-info">
+                      <div class="class-radio-name">Free Discovery Consultation</div>
+                      <div class="class-radio-desc">20 min · Phone or Zoom</div>
+                    </div>
+                    <div class="class-radio-price">Free</div>
+                  </div>
+
+                </div>
+
+                <div class="booking-nav">
+                  <div class="booking-nav-left"></div>
+                  <div class="booking-nav-right">
+                    <button class="btn btn--sage btn--lg" id="step1-next">Continue to Date →</button>
+                  </div>
+                </div>
+              </div><!-- /step 1 -->
+
+
+              <!-- ─ STEP 2: Choose date ─ -->
+              <div class="step-panel" data-step="2">
+                <h3>Choose a Date</h3>
+                <p class="booking-panel-sub">Dates with available spots are highlighted. Select a date to continue.</p>
+
+                <div class="calendar-wrap">
+                  <div class="cal-nav">
+                    <!--
+                      [BACKEND] — Calendar availability is loaded via
+                      GET /api/availability?classId=:id&month=:YYYY-MM
+                      See script.js loadAvailability() function.
+                    -->
+                    <button class="cal-nav-btn" id="cal-prev" aria-label="Previous month">‹</button>
+                    <span class="cal-month" id="cal-month-label">Loading…</span>
+                    <button class="cal-nav-btn" id="cal-next" aria-label="Next month">›</button>
+                  </div>
+                  <div class="cal-grid" id="cal-grid">
+                    <!-- Rendered by script.js renderCalendar() -->
+                  </div>
+                  <div class="cal-legend">
+                    <div class="cal-legend-item"><div class="cal-legend-dot" style="background:var(--sage)"></div> Available</div>
+                    <div class="cal-legend-item"><div class="cal-legend-dot" style="background:var(--pale-blush)"></div> Unavailable</div>
+                    <div class="cal-legend-item"><div class="cal-legend-dot" style="background:var(--sage);opacity:.3"></div> Today</div>
+                  </div>
+                </div>
+
+                <div class="booking-nav">
+                  <div class="booking-nav-left">
+                    <button class="btn btn--ghost" id="step2-back">← Back</button>
+                  </div>
+                  <div class="booking-nav-right">
+                    <button class="btn btn--sage btn--lg" id="step2-next">Continue to Time →</button>
+                  </div>
+                </div>
+              </div><!-- /step 2 -->
+
+
+              <!-- ─ STEP 3: Choose time ─ -->
+              <div class="step-panel" data-step="3">
+                <h3>Choose a Time</h3>
+                <div class="slots-header">
+                  <p class="slots-date" id="slots-date-label">—</p>
+                </div>
+
+                <!--
+                  [BACKEND] — Time slots loaded via
+                  GET /api/slots?classId=:id&date=:YYYY-MM-DD
+                  See script.js loadSlots() function.
+                -->
+                <div class="slots-grid" id="slots-grid">
+                  <div class="slots-loading">Select a date first</div>
+                </div>
+
+                <div class="booking-nav">
+                  <div class="booking-nav-left">
+                    <button class="btn btn--ghost" id="step3-back">← Back</button>
+                  </div>
+                  <div class="booking-nav-right">
+                    <button class="btn btn--sage btn--lg" id="step3-next">Continue to Details →</button>
+                  </div>
+                </div>
+              </div><!-- /step 3 -->
+
+
+              <!-- ─ STEP 4: Your details + promo ─ -->
+              <div class="step-panel" data-step="4">
+                <h3>Your Details</h3>
+                <p class="booking-panel-sub">All fields required. Your info is used for booking confirmation only.</p>
+
+                <div class="booking-form">
+                  <div class="form-row">
+                    <div class="form-field">
+                      <label for="f-fname">First name</label>
+                      <input type="text" id="f-fname" name="firstName" autocomplete="given-name" placeholder="Sarah">
+                      <span class="error-msg">First name is required.</span>
+                    </div>
+                    <div class="form-field">
+                      <label for="f-lname">Last name</label>
+                      <input type="text" id="f-lname" name="lastName" autocomplete="family-name" placeholder="Cohen">
+                      <span class="error-msg">Last name is required.</span>
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-field">
+                      <label for="f-email">Email address</label>
+                      <input type="email" id="f-email" name="email" autocomplete="email" placeholder="sarah@email.com">
+                      <span class="error-msg">A valid email is required.</span>
+                    </div>
+                    <div class="form-field">
+                      <label for="f-phone">Phone number</label>
+                      <input type="tel" id="f-phone" name="phone" autocomplete="tel" placeholder="(845) 555-0100">
+                      <span class="error-msg">Phone number is required.</span>
+                    </div>
+                  </div>
+                  <div class="form-field">
+                    <label for="f-notes">Any notes or questions? <span style="opacity:.5">(optional)</span></label>
+                    <textarea id="f-notes" name="notes" placeholder="Anything helpful for Shaindel to know before your session…"></textarea>
+                  </div>
+
+                  <!-- Promo code -->
+                  <div class="form-field">
+                    <label for="promo-input">Promo code <span style="opacity:.5">(optional)</span></label>
+                    <div class="promo-row">
+                      <input type="text" id="promo-input" name="promoCode" placeholder="e.g. INSIYT10" style="text-transform:uppercase;">
+                      <!--
+                        [BACKEND] — Promo validation via POST /api/promo/validate
+                        See script.js promo-apply handler.
+                        Test code: INSIYT10 (10% off — stub only)
+                      -->
+                      <button class="btn btn--outline" id="promo-apply" type="button">Apply</button>
+                    </div>
+                    <span class="promo-ok" id="promo-ok" style="display:none"></span>
+                    <span class="promo-err" id="promo-err" style="display:none"></span>
+                  </div>
+
+                  <!-- Terms -->
+                  <label class="checkbox-row">
+                    <input type="checkbox" id="f-terms" name="agreeTerms">
+                    <span>I agree to INSIYT's <a href="../terms/" target="_blank">terms and conditions</a> and <a href="../privacy/" target="_blank">privacy policy</a>. I understand that cancellations must be made at least 24 hours in advance for a full refund.</span>
+                  </label>
+                </div>
+
+                <div class="booking-nav">
+                  <div class="booking-nav-left">
+                    <button class="btn btn--ghost" id="step4-back">← Back</button>
+                  </div>
+                  <div class="booking-nav-right">
+                    <button class="btn btn--sage btn--lg" id="step4-next">Continue to Payment →</button>
+                  </div>
+                </div>
+              </div><!-- /step 4 -->
+
+
+              <!-- ─ STEP 5: Payment ─ -->
+              <div class="step-panel" data-step="5">
+                <h3>Secure Payment</h3>
+                <p class="booking-panel-sub">Powered by Square. Your card details never touch INSIYT's servers.</p>
+
+                <div class="payment-wrap">
+
+                  <div class="payment-notice">
+                    <span class="payment-notice-icon">🔒</span>
+                    <span>You will be charged <strong id="payment-amount">—</strong> once you click Complete Payment. Your booking will be confirmed immediately by email.</span>
+                  </div>
+
+                  <!--
+                    [SQUARE] — Card form container
+                    Square Web Payments SDK renders its iframe card fields here.
+                    1. Uncomment the Square.js script tag in <head>
+                    2. Fill in CONFIG.SQUARE_APP_ID and CONFIG.SQUARE_LOCATION_ID in script.js
+                    3. The initSquarePayment() function in script.js handles the rest.
+                  -->
+                  <div id="square-card-container"></div>
+
+                  <div class="payment-error" id="payment-error"></div>
+                  <div class="payment-secure">Payments processed securely by Square</div>
+
+                  <div class="booking-nav">
+                    <div class="booking-nav-left">
+                      <button class="btn btn--ghost" id="step5-back">← Back</button>
+                    </div>
+                    <div class="booking-nav-right">
+                      <!--
+                        [SQUARE] — This button calls squareCard.tokenize() then
+                        POST /api/payment/complete — see script.js step5-pay handler
+                      -->
+                      <button class="btn btn--dark btn--lg" id="step5-pay">Complete Payment →</button>
+                    </div>
+                  </div>
+
+                </div>
+              </div><!-- /step 5 -->
+
+
+              <!-- ─ STEP 6: Confirmation ─ -->
+              <div class="step-panel" data-step="6">
+                <div class="confirm-wrap">
+                  <div class="confirm-icon">✓</div>
+                  <h3>You're Booked!</h3>
+                  <p>A confirmation email has been sent to <strong id="conf-email">—</strong>. We look forward to seeing you.</p>
+                  <!--
+                    [BACKEND] — Confirmation email is triggered server-side via
+                    POST /api/webhook/square (Square payment webhook)
+                    or directly from POST /api/payment/complete
+                  -->
+                  <div class="confirm-details">
+                    <div class="confirm-row">
+                      <span class="confirm-row-label">Class</span>
+                      <span class="confirm-row-val" id="conf-class">—</span>
+                    </div>
+                    <div class="confirm-row">
+                      <span class="confirm-row-label">Date</span>
+                      <span class="confirm-row-val" id="conf-date">—</span>
+                    </div>
+                    <div class="confirm-row">
+                      <span class="confirm-row-label">Time</span>
+                      <span class="confirm-row-val" id="conf-time">—</span>
+                    </div>
+                    <div class="confirm-row">
+                      <span class="confirm-row-label">Name</span>
+                      <span class="confirm-row-val" id="conf-name">—</span>
+                    </div>
+                    <div class="confirm-row">
+                      <span class="confirm-row-label">Amount paid</span>
+                      <span class="confirm-row-val" id="conf-amount">—</span>
+                    </div>
+                    <div class="confirm-row" style="margin-top:.5rem;padding-top:.75rem;border-top:1px solid var(--border);">
+                      <span class="confirm-row-label">Booking ref</span>
+                      <span class="confirm-row-val confirm-ref" id="conf-ref">—</span>
+                    </div>
+                  </div>
+                  <div style="display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;">
+                    <button class="btn btn--dark" id="conf-book-another">Book Another Class</button>
+                    <a href="../home/" class="btn btn--outline">Back to Home</a>
+                  </div>
+                </div>
+              </div><!-- /step 6 -->
+
+            </div><!-- /.booking-panel -->
+
+            <!-- ── Sidebar summary ── -->
+            <div class="booking-sidebar">
+              <div>
+                <p class="sidebar-title">Your booking</p>
+                <p class="sidebar-class-name" id="sidebar-class-name">No class selected</p>
+                <div class="sidebar-meta">
+                  <div class="sidebar-meta-row">
+                    <span class="sidebar-meta-icon">📅</span>
+                    <span id="sidebar-date">—</span>
+                  </div>
+                  <div class="sidebar-meta-row">
+                    <span class="sidebar-meta-icon">🕐</span>
+                    <span id="sidebar-time">—</span>
+                  </div>
+                  <div class="sidebar-meta-row">
+                    <span class="sidebar-meta-icon">📍</span>
+                    <span>
+                      <!--
+                        [CONFIG] — Replace with your actual address
+                      -->
+                      Airmont, NY
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="sidebar-divider"></div>
+              <div class="sidebar-price-row">
+                <span class="sidebar-price-label">Total</span>
+                <span class="sidebar-price-val" id="sidebar-price">—</span>
+              </div>
+              <div>
+                <p class="sidebar-placeholder">Questions? <a href="../contact/" style="color:var(--sage);text-decoration:underline;">Contact us</a></p>
+              </div>
+            </div><!-- /.booking-sidebar -->
+
+          </div><!-- /.booking-body -->
+        </div><!-- /.booking-shell -->
+
+      </div>
+    </section>
+
+
+    <!-- ══ PRICING PLANS ══ -->
+    <section class="section section--ww" id="pricing">
+      <div class="wrap">
+
+        <div class="sec-head reveal">
+          <span class="label">Plans &amp; Pricing</span>
+          <h2>Commit to Your <em>Practice</em></h2>
+          <p class="lead">Individual classes, monthly memberships, or a class pack — choose the plan that supports your healing journey.</p>
+        </div>
+
+        <!--
+          [BACKEND] — Pricing plans can be made dynamic via GET /api/pricing
+          Render cards from the response instead of hardcoding below.
+        -->
+        <div class="pricing-grid">
+
+          <!-- Plan 1: Drop-in -->
+          <div class="pricing-card">
+            <div class="pricing-name">Drop-In</div>
+            <div class="pricing-price">
+              <span class="pricing-amount">$35</span>
+              <span class="pricing-per">/ class</span>
+            </div>
+            <p class="pricing-desc">Perfect for trying a class or attending occasionally — no commitment required.</p>
+            <div class="pricing-divider"></div>
+            <ul class="pricing-features">
+              <li class="pricing-feature">Any single group class</li>
+              <li class="pricing-feature">Book anytime online</li>
+              <li class="pricing-feature">24-hr cancellation for full refund</li>
+              <li class="pricing-feature off">Priority booking</li>
+              <li class="pricing-feature off">Pack discount</li>
+            </ul>
+            <div class="pricing-cta">
+              <a href="#book-a-class" class="btn btn--outline btn--full">Book a Drop-In</a>
+            </div>
+          </div>
+
+          <!-- Plan 2: Class Pack (featured) -->
+          <div class="pricing-card featured">
+            <span class="pricing-badge">Best Value</span>
+            <div class="pricing-name">Class Pack</div>
+            <div class="pricing-price">
+              <span class="pricing-amount">$120</span>
+              <span class="pricing-per">/ 5 classes</span>
+            </div>
+            <p class="pricing-desc">A pack of 5 classes at a discounted rate — use them across any group class over 3 months.</p>
+            <div class="pricing-divider"></div>
+            <ul class="pricing-features">
+              <li class="pricing-feature">5 group classes ($24 each)</li>
+              <li class="pricing-feature">Mix any class types</li>
+              <li class="pricing-feature">Valid for 3 months</li>
+              <li class="pricing-feature">Priority booking window</li>
+              <li class="pricing-feature off">Unlimited monthly access</li>
+            </ul>
+            <div class="pricing-cta">
+              <!--
+                [BACKEND] — Link to a pack purchase flow or contact page.
+                Could use the same booking flow with a special classId for packs.
+              -->
+              <a href="../contact/" class="btn btn--sage btn--full">Get a Class Pack</a>
+            </div>
+          </div>
+
+          <!-- Plan 3: Monthly Membership -->
+          <div class="pricing-card">
+            <div class="pricing-name">Monthly Membership</div>
+            <div class="pricing-price">
+              <span class="pricing-amount">$180</span>
+              <span class="pricing-per">/ month</span>
+            </div>
+            <p class="pricing-desc">Unlimited group classes for one monthly fee — ideal for an ongoing committed practice.</p>
+            <div class="pricing-divider"></div>
+            <ul class="pricing-features">
+              <li class="pricing-feature">Unlimited group classes</li>
+              <li class="pricing-feature">First access to new classes</li>
+              <li class="pricing-feature">Priority booking always</li>
+              <li class="pricing-feature">10% off private sessions</li>
+              <li class="pricing-feature">Cancel anytime</li>
+            </ul>
+            <div class="pricing-cta">
+              <a href="../contact/" class="btn btn--outline btn--full">Start Membership</a>
+            </div>
+          </div>
+
+        </div><!-- /.pricing-grid -->
+
+        <p class="reveal" style="margin-top:2rem;font-size:.82rem;color:var(--muted);text-align:center;">
+          Private sessions billed separately. Sliding scale available — <a href="../contact/" style="color:var(--sage);text-decoration:underline;">contact us</a> to discuss.
+        </p>
+
+      </div>
+    </section>
+
+
+    <!-- ══ FAQ ══ -->
+    <section class="section section--cr2" id="faq">
+      <div class="wrap">
+
+        <div class="sec-head reveal">
+          <span class="label">Questions</span>
+          <h2>Frequently <em>Asked</em></h2>
+        </div>
+
+        <div class="faq-list reveal">
+
+          <div class="faq-item">
+            <div class="faq-q">What should I wear or bring?
+              <div class="faq-icon">+</div>
+            </div>
+            <div class="faq-a">Wear comfortable, stretchy clothing you can move in freely. For yoga and dance classes bring a water bottle. For drumming circles everything is provided — just bring yourself. Mats and props are available for yoga sessions.</div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q">What is your cancellation policy?
+              <div class="faq-icon">+</div>
+            </div>
+            <div class="faq-a">Cancellations made at least 24 hours before your class receive a full refund. Cancellations within 24 hours are non-refundable but can be applied as a credit toward a future class. No-shows are non-refundable.</div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q">Do I need any prior experience?
+              <div class="faq-icon">+</div>
+            </div>
+            <div class="faq-a">Not at all. All group classes are designed to be accessible regardless of background or experience. Our approach is about meeting you where you are — not pushing you toward a performance standard.</div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q">How do I book a private session with Shaindel?
+              <div class="faq-icon">+</div>
+            </div>
+            <div class="faq-a">Select "Private Somatic Session" or "Therapeutic Touch Session" in the booking flow above. You can also start with a free 20-minute discovery consultation to explore which approach is right for you before committing to a full session.</div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q">Is there parking?
+              <div class="faq-icon">+</div>
+            </div>
+            <div class="faq-a">
+              <!--
+                [CONFIG] — Replace with your actual parking / location details
+              -->
+              Yes, free parking is available on site. The studio is located in Airmont, NY — exact address is sent in your booking confirmation email.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q">Can I gift a class to someone?
+              <div class="faq-icon">+</div>
+            </div>
+            <div class="faq-a">Gift certificates are available — please <a href="../contact/" style="color:var(--sage);">contact us directly</a> and we'll set one up for you.</div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q">Is my payment information secure?
+              <div class="faq-icon">+</div>
+            </div>
+            <div class="faq-a">All payments are processed by Square — a PCI-DSS compliant payment processor. Your card details are never stored on INSIYT's servers. Square handles all tokenisation and charging securely.</div>
+          </div>
+
+        </div><!-- /.faq-list -->
+      </div>
+    </section>
+
+
+    <!-- ══ CTA ══ -->
+    <section class="section section--pb">
+      <div class="wrap">
+        <div class="reveal" style="max-width:820px;background:rgba(253,250,245,.8);border:1px solid rgba(42,34,24,.1);border-radius:12px;padding:3.5rem 4rem;">
+          <span class="label label--terra">Still not sure?</span>
+          <h2 style="font-size:clamp(1.6rem,3vw,2.4rem);margin-top:.5rem;margin-bottom:.75rem;">Start with a <em>Free Conversation</em></h2>
+          <p style="color:var(--muted);margin-bottom:2rem;max-width:580px;">Book a free 20-minute discovery call with Shaindel — no pressure, no obligation. Just an honest conversation about whether INSIYT is right for you.</p>
+          <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+            <a href="#book-a-class" class="btn btn--dark btn--lg">Book Free Consultation</a>
+            <a href="../meet-shaindel/" class="btn btn--outline btn--lg">Meet Shaindel</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-inner">
+        <div>
+          <div class="footer-logo">INSIYT</div>
+          <p class="footer-tag">Inhabit Your Body. Expand Your Mind. Transform Your Life.</p>
+        </div>
+        <nav class="footer-nav">
+          <div class="footer-col">
+            <span class="footer-col-h">Services</span>
+            <a href="../somatic-therapy/">Somatic Therapy</a>
+            <a href="../brain-based-therapy/">Brain-Based Therapy</a>
+            <a href="../womens-wellness/">Women's Wellness</a>
+            <a href="../group-classes/">Group Classes</a>
+          </div>
+          <div class="footer-col">
+            <span class="footer-col-h">About</span>
+            <a href="../meet-shaindel/">Meet Shaindel</a>
+            <a href="../our-team/">Our Team</a>
+            <a href="../shaindels-story/">Shaindel's Story</a>
+            <a href="../testimonials/">Testimonials</a>
+          </div>
+          <div class="footer-col">
+            <span class="footer-col-h">Connect</span>
+            <a href="../contact/">Contact</a>
+            <a href="#book-a-class">Book a Class</a>
+            <a href="#pricing">Plans &amp; Pricing</a>
+          </div>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <span class="footer-copy">© 2025 BY INSIYT | SHAINDEL UDOFF</span>
+        <span class="footer-copy">Privacy · Terms</span>
       </div>
     </div>
   </footer>
 
-  <script src="../assets/js/nav.js"></script>
-  <script src="../assets/js/main.js"></script>
   <script src="script.js"></script>
+
 </body>
 </html>
